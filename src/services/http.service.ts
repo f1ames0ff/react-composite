@@ -1,6 +1,6 @@
 import {catchError, from, Observable, of} from "rxjs";
 
-interface RequestOptions<T> {
+interface RequestOptions<T = unknown> {
     headers?: Headers;
     params?: URLSearchParams;
     body?: T
@@ -16,13 +16,10 @@ const service = new class HttpService {
 
     get<T>(url: string, options: RequestOptions): Observable<T> {
         let assembledUrl :string;
-        let request: Request;
 
         if(options.params) {
             assembledUrl = this.assembleUrl(url, options.params);
         }
-
-
 
         const request = new Request(url, {
             method: 'GET',
