@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { AppComponent } from './components/app/app.component';
+import {AppComponent} from './components/app/app.component';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
     <React.StrictMode>
-        <AppComponent/>
+        <BrowserRouter>
+            <AppComponent/>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );
